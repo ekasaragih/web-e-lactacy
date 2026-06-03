@@ -7,11 +7,13 @@
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
-}
+        'Segoe UI Symbol', 'Noto Color Emoji', 'Plus Jakarta Sans';
 
-:root{
-    --primary:#0F766E;
-    --secondary:#14B8A6;
-    --accent:#0EA5E9;
+    --color-primary:     #0F766E;
+    --color-primary-dk:  #0d6460;
+    --color-primary-lt:  #E1F5EE;
+    --color-primary-mid: #0F6E56;
+    --color-primary-brd: #9FE1CB;
+
+    --color-accent:      #0EA5E9;
 }
