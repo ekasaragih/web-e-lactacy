@@ -25,7 +25,7 @@
         </p>
 
         <div class="flex flex-wrap justify-center gap-3">
-            <a href="{{ route('dashboard') }}"
+            <a href="{{ route('beranda') }}"
                 class="inline-flex items-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dk)] text-white font-semibold px-7 py-3 rounded-xl transition">
                 <i class="ti ti-rocket"></i>
                 Mulai Sekarang
@@ -56,7 +56,6 @@
         </p>
 
         <div class="grid md:grid-cols-3 gap-5 mt-10">
-
             <div class="bg-slate-50 rounded-2xl p-6">
                 <div
                     class="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center mb-4">
@@ -108,23 +107,22 @@
     </section>
 
     <section class="max-w-5xl mx-auto px-6 py-20 border-b border-slate-200">
-        <div class="text-center mb-12">
-            <p class="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary)] mb-2">
-                Fitur Utama
-            </p>
+        <p class="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary)] mb-2">
+            Fitur Utama
+        </p>
 
-            <h2 class="font-['Lora'] text-4xl font-bold text-slate-800 mb-4">
-                Semua yang Anda Butuhkan dalam Satu Aplikasi
-            </h2>
+        <h2 class="font-['Lora'] text-4xl font-bold text-slate-800 mb-4">
+            Semua yang Anda Butuhkan dalam Satu Aplikasi
+        </h2>
 
-            <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                E-Lactacy menyediakan berbagai fitur edukasi, pendampingan, dan evaluasi
-                yang dirancang untuk membantu ibu menjalani proses menyusui dengan lebih
-                percaya diri, nyaman, dan terarah.
-            </p>
-        </div>
+        <p class="text-slate-500 leading-relaxed max-w-3xl">
+            E-Lactacy menyediakan berbagai fitur edukasi, pendampingan, dan evaluasi
+            yang dirancang untuk membantu ibu menjalani proses menyusui dengan lebih
+            percaya diri, nyaman, dan terarah.
+        </p>
 
-        <div class="grid md:grid-cols-4 gap-6">
+
+        <div class="grid md:grid-cols-4 gap-6 mt-10">
             <div class="bg-white rounded-2xl border border-slate-200 p-6 hover:shadow-md transition-all">
                 <i class="ti ti-book text-3xl text-[var(--color-primary)]"></i>
 
@@ -235,7 +233,6 @@
 
 
     <section class="max-w-5xl mx-auto px-6 py-20 border-b border-slate-200">
-
         <p class="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary)] mb-2">
             Manfaat Aplikasi
         </p>
@@ -249,41 +246,49 @@
         </p>
 
         <div class="space-y-6">
-
             @foreach([
-            'Pengetahuan mendalam tentang laktasi.',
-            'Dukungan sosial yang kuat.',
-            'Akses konseling kapan saja.',
-            'Pengingat & pemantauan terstruktur.',
-            'Evaluasi berbasis data.'
+            [
+            'title' => 'Pengetahuan mendalam tentang laktasi.',
+            'detail' => 'mulai dari teknik menyusui yang benar, manajemen ASI, hingga mengatasi masalah umum saat
+            menyusui.',
+            ],
+            [
+            'title' => 'Dukungan sosial yang kuat.',
+            'detail' => 'edukasi untuk suami dan keluarga, serta forum diskusi bersama sesama ibu menyusui.',
+            ],
+            [
+            'title' => 'Akses konseling kapan saja.',
+            'detail' => 'terhubung langsung dengan konselor laktasi bersertifikat melalui fitur chat online.',
+            ],
+            [
+            'title' => 'Pengingat & pemantauan terstruktur.',
+            'detail' => 'reminder menyusui otomatis dan grafik perkembangan untuk membantu konsistensi.',
+            ],
+            [
+            'title' => 'Evaluasi berbasis data.',
+            'detail' => 'pre-test dan post-test untuk mengukur perubahan pengetahuan dan perilaku menyusui Anda secara
+            ilmiah.',
+            ],
             ] as $index => $item)
-
             <div class="flex gap-4">
-
                 <div
                     class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 text-sm font-bold flex items-center justify-center shrink-0">
-                    {{ $index+1 }}
+                    {{ $index + 1 }}
                 </div>
-
                 <p class="text-slate-700 leading-relaxed">
-                    {{ $item }}
+                    <span class="font-semibold">{{ $item['title'] }}</span>
+                    — {{ $item['detail'] }}
                 </p>
-
             </div>
-
             @endforeach
-
         </div>
-
     </section>
 
 
     <section class="max-w-5xl mx-auto px-6 py-20 border-b border-slate-200">
-
         <div class="grid lg:grid-cols-2 gap-10">
 
             <div>
-
                 <p class="text-xs font-bold uppercase tracking-[0.15em] text-[var(--color-primary)] mb-2">
                     Konseling Online
                 </p>
@@ -294,56 +299,75 @@
 
                 <p class="text-slate-500 leading-relaxed mb-8">
                     Tidak perlu khawatir sendirian. E-Lactacy menyediakan fitur
-                    konseling online langsung dengan konselor laktasi bersertifikat.
+                    konseling online langsung dengan konselor laktasi bersertifikat —
+                    kapan saja, dari mana saja, tanpa perlu antri.
                 </p>
 
                 <div class="space-y-3 mb-8">
-
-                    <div><i class="ti ti-check text-emerald-600"></i> Chat langsung dengan konselor bersertifikat</div>
-                    <div><i class="ti ti-check text-emerald-600"></i> Jadwal konsultasi yang fleksibel</div>
-                    <div><i class="ti ti-check text-emerald-600"></i> Rekam jejak konsultasi tersimpan aman</div>
-                    <div><i class="ti ti-check text-emerald-600"></i> FAQ dan panduan menyusui terlengkap</div>
-
+                    <div class="flex items-center gap-2 text-slate-700">
+                        <i class="ti ti-check text-emerald-600"></i>
+                        Chat langsung dengan konselor bersertifikat
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-700">
+                        <i class="ti ti-check text-emerald-600"></i>
+                        Jadwal konsultasi yang fleksibel
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-700">
+                        <i class="ti ti-check text-emerald-600"></i>
+                        Rekam jejak konsultasi tersimpan aman
+                    </div>
+                    <div class="flex items-center gap-2 text-slate-700">
+                        <i class="ti ti-check text-emerald-600"></i>
+                        FAQ dan panduan menyusui terlengkap
+                    </div>
                 </div>
 
                 <a href="#"
-                    class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-6 py-3 rounded-xl font-semibold">
+                    class="inline-flex items-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dk)] text-white px-6 py-3 rounded-xl font-semibold transition">
+                    <i class="ti ti-message-circle"></i>
                     Mulai Konseling
                 </a>
-
             </div>
 
+            {{-- Chat preview card --}}
             <div class="bg-slate-50 rounded-3xl border border-slate-200 p-6">
-
                 <div class="flex items-center gap-3 mb-5">
-
                     <div
-                        class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+                        class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">
                         DW
                     </div>
-
                     <div>
-                        <h4 class="font-semibold">drg. Dewi Wulandari, IBCLC</h4>
-                        <p class="text-xs text-slate-500">
+                        <h4 class="font-semibold text-slate-800">drg. Dewi Wulandari, IBCLC</h4>
+                        <p class="text-xs text-slate-500 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
                             Konselor Laktasi · Online
                         </p>
                     </div>
-
                 </div>
 
-                <div class="space-y-4 text-sm">
-
-                    <div class="bg-white border border-slate-200 rounded-xl p-3">
-                        Selamat siang, Bu. Ada yang bisa saya bantu hari ini?
+                <div class="space-y-3 text-sm">
+                    <div>
+                        <div
+                            class="bg-white border border-slate-200 rounded-xl rounded-tl-none p-3 text-slate-700 max-w-xs">
+                            Selamat siang, Bu. Ada yang bisa saya bantu hari ini?
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1 ml-1">10:02</p>
                     </div>
 
-                    <div class="bg-[var(--color-primary)] text-white rounded-xl p-3 ml-auto max-w-xs">
-                        Dok, bayi saya 2 minggu. ASI saya terasa sedikit,
-                        apakah normal?
+                    <div class="flex flex-col items-end">
+                        <div
+                            class="bg-[var(--color-primary)] text-white rounded-xl rounded-tr-none p-3 max-w-xs text-right">
+                            Dok, bayi saya 2 minggu. ASI saya terasa sedikit, apakah normal?
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1 mr-1">10:03</p>
                     </div>
 
-                    <div class="bg-white border border-slate-200 rounded-xl p-3">
-                        Tenang, Bu. Ini sangat umum di awal...
+                    <div>
+                        <div
+                            class="bg-white border border-slate-200 rounded-xl rounded-tl-none p-3 text-slate-700 max-w-xs">
+                            Tenang, Bu. Ini sangat umum di awal. Yuk cek frekuensi menyusui dan perlekataan bayi dulu...
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1 ml-1">10:04</p>
                     </div>
                 </div>
             </div>

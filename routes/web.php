@@ -1,15 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FeatureController;
 
-Route::get('/', function () {
-    return view('splash-screen');
+// Authentication
+Route::get('/login', [AuthController::class, 'showLogin'])->name('user.login');
+Route::get('/auth/register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'store'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/auth/logout', [AuthController::class, 'logout'])->name('user.logout');
+
+// Guest
+Route::middleware('guest')->group(function () {
+    Route::get('/', [FeatureController::class, 'splash_screen'])->name('splash_screen');
+    Route::get('/welcome_guest', [FeatureController::class, 'welcome'])->name('welcome_guest');
+    Route::get('/welcome', [FeatureController::class, 'welcome'])->name('welcome');
+
 });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/beranda', [FeatureController::class, 'beranda'])->name('beranda');
+Route::get('/edukasi_laktasi', [FeatureController::class, 'edukasi_laktasi'])->name('edukasi_laktasi');
+Route::get('/motivasi', [FeatureController::class, 'motivasi'])->name('motivasi');
 
-Route::get('/dashboard', function () {
-    return view('features.dashboard');
-})->name('dashboard');

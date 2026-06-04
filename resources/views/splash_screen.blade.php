@@ -40,7 +40,7 @@
             sessionStorage.setItem('splashShown', true);
             setTimeout(() => {
                 window.location.href = "{{ route('welcome') }}";
-            }, 3000);
+            }, 5000);
         }
     </script>
 </body>
