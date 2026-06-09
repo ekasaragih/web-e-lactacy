@@ -135,4 +135,9 @@ class FeatureController extends Controller
         return view("features.motivasi");
     }
 
+    public function niat_target_menyusui()
+    {
+        return view("features.niat_target_menyusui");
+    }
+
 }

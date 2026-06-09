@@ -23,4 +23,6 @@ Route::middleware('guest')->group(function () {
 Route::get('/beranda', [FeatureController::class, 'beranda'])->name('beranda');
 Route::get('/edukasi_laktasi', [FeatureController::class, 'edukasi_laktasi'])->name('edukasi_laktasi');
 Route::get('/motivasi', [FeatureController::class, 'motivasi'])->name('motivasi');
+Route::get('/niat_target_menyusui', [FeatureController::class, 'niat_target_menyusui'])->name('niat_target_menyusui');
+
 
