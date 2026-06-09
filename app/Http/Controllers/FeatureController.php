@@ -287,5 +287,8 @@ class FeatureController extends Controller
         return view('features.keterampilan_menyusui', compact('topics'));
     }
 
-    
+    public function monitoring_reminder()
+    {
+        return view('features.monitoring_reminder');
+    }
 }
