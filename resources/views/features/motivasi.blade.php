@@ -31,7 +31,7 @@
                     <i class="ti ti-arrow-left text-[15px]"></i>
                     Edukasi Laktasi
                 </a>
-                <a href=""
+                <a href="{{ route('niat_target_menyusui') }}"
                     class="inline-flex items-center gap-2 text-[13px] font-semibold bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-xl hover:bg-[var(--color-primary-dk)] transition-colors">
                     Lanjut: Niat & Target Menyusui
                     <i class="ti ti-arrow-right text-[15px]"></i>

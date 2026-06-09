@@ -27,7 +27,6 @@
 
         <div class="px-8 py-8">
 
-            {{-- Navigation --}}
             <div class="flex items-center justify-between mb-8">
                 <a href="{{ route('motivasi') }}"
                     class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-700 transition">
@@ -37,12 +36,11 @@
 
                 <a href=""
                     class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-[var(--color-primary-dk)] transition">
-                    Dukungan Sosial
+                    Konseling Online
                     <i class="ti ti-arrow-right"></i>
                 </a>
             </div>
 
-            {{-- Tujuan Modul --}}
             <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-8 flex gap-5 items-start">
                 <div class="w-12 h-12 rounded-xl bg-[var(--color-primary)] flex items-center justify-center shrink-0">
                     <i class="ti ti-heart-handshake text-white text-xl"></i>
@@ -62,8 +60,6 @@
             </div>
 
             <form>
-
-                {{-- Target ASI --}}
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
                     <div class="flex items-center gap-2 mb-5">
                         <i class="ti ti-target-arrow text-[var(--color-primary)]"></i>
@@ -73,7 +69,6 @@
                     </div>
 
                     <div class="grid md:grid-cols-3 gap-3">
-
                         <label
                             class="border border-slate-200 rounded-xl p-4 cursor-pointer hover:border-[var(--color-primary)] transition has-[:checked]:border-[var(--color-primary)] has-[:checked]:bg-pink-50">
                             <input type="radio" name="target" class="hidden">
@@ -110,7 +105,6 @@
                     </div>
                 </div>
 
-                {{-- Komitmen --}}
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
                     <div class="flex items-center gap-2 mb-5">
                         <i class="ti ti-pencil-heart text-[var(--color-primary)]"></i>
@@ -124,7 +118,6 @@
                         class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"></textarea>
                 </div>
 
-                {{-- Checklist --}}
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
                     <div class="flex items-center gap-2 mb-5">
                         <i class="ti ti-checklist text-[var(--color-primary)]"></i>
@@ -156,7 +149,6 @@
                     </div>
                 </div>
 
-                {{-- Perencanaan --}}
                 <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-8">
                     <div class="flex items-center gap-2 mb-5">
                         <i class="ti ti-calendar-event text-[var(--color-primary)]"></i>

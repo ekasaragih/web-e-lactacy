@@ -39,12 +39,10 @@
     Niat & Target Menyusui
 </a>
 
-{{-- <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
-    <i class="ti ti-users"></i>
-    Dukungan Sosial
-</a> --}}
-
-<a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
+<a href="{{ route('konseling_online') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
+        {{ request()->routeIs('konseling_online')
+            ? 'bg-pink-50 text-pink-600 font-medium'
+            : 'hover:bg-slate-100 text-slate-700' }}">
     <i class="ti ti-message-circle"></i>
     Konseling Online
 </a>

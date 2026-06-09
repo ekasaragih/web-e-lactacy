@@ -140,4 +140,46 @@ class FeatureController extends Controller
         return view("features.niat_target_menyusui");
     }
 
+    public function konseling_online()
+    {
+        // list yang ini bisa hardcoded tp bisa juga kalau mau distore di db
+        $konselor = [
+            [
+                'nama' => 'dr. Anita, Sp.A',
+                'role' => 'Dokter Anak',
+                'wa' => '6281234567890',
+                'warna' => 'bg-pink-50 text-pink-600'
+            ],
+            [
+                'nama' => 'Bidan Rina',
+                'role' => 'Bidan Konselor Laktasi',
+                'wa' => '6281234567891',
+                'warna' => 'bg-emerald-50 text-emerald-600'
+            ],
+            [
+                'nama' => 'Maya Putri',
+                'role' => 'Konselor Laktasi',
+                'wa' => '6281234567892',
+                'warna' => 'bg-sky-50 text-sky-600'
+            ]
+        ];
+
+        // ini nanti bisa ambil dari database aja
+        $riwayat = [
+            [
+                'subjek' => 'Bayi sulit melekat saat menyusu',
+                'tanggal' => '20 Agustus 2026',
+                'status' => 'Sudah Dibalas',
+                'balasan' => 'Pastikan mulut bayi membuka lebar dan sebagian besar areola masuk ke dalam mulut bayi.'
+            ],
+            [
+                'subjek' => 'ASI terasa berkurang',
+                'tanggal' => '23 Agustus 2026',
+                'status' => 'Menunggu Balasan',
+                'balasan' => null
+            ]
+        ];
+
+        return view('features.konseling_online', compact('konselor', 'riwayat'));
+    }
 }
