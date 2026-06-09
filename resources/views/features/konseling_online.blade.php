@@ -146,7 +146,6 @@
             </div>
 
             <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-6">
-
                 <div class="flex items-center gap-2 mb-5">
                     <i class="ti ti-calendar-event text-[var(--color-primary)]"></i>
 
@@ -156,9 +155,7 @@
                 </div>
 
                 <div class="bg-sky-50 border border-sky-100 rounded-xl p-4 mb-6 flex gap-3 items-start">
-
                     <i class="ti ti-info-circle text-sky-600 text-lg mt-0.5"></i>
-
                     <div>
                         <p class="font-medium text-sky-800 text-sm mb-1">
                             Konseling melalui Zoom / Google Meet
@@ -171,11 +168,9 @@
                             beserta tautan Zoom atau Google Meet untuk sesi konsultasi.
                         </p>
                     </div>
-
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-4">
-
                     <div>
                         <label class="block text-sm font-medium text-slate-700 mb-2">
                             Tanggal Konseling
@@ -209,29 +204,21 @@
                             <option>15.00 WIB</option>
                         </select>
                     </div>
-
                 </div>
 
                 <div class="mt-5 flex flex-wrap gap-3">
-
                     <button
                         class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-[var(--color-primary-dk)] transition">
-
                         <i class="ti ti-send"></i>
                         Ajukan Permohonan Konseling
-
                     </button>
 
                     <div
                         class="inline-flex items-center gap-2 bg-amber-50 text-amber-700 border border-amber-200 px-4 py-2.5 rounded-xl text-sm">
-
                         <i class="ti ti-clock-hour-4"></i>
                         Menunggu konfirmasi dari konselor
-
                     </div>
-
                 </div>
-
             </div>
 
             <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-8">

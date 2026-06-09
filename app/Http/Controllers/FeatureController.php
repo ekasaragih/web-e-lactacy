@@ -182,4 +182,110 @@ class FeatureController extends Controller
 
         return view('features.konseling_online', compact('konselor', 'riwayat'));
     }
+
+    public function keterampilan_menyusui()
+    {
+        $topics = [
+            [
+                'title' => 'Video Teknik Pelekatan',
+                'desc' => 'Pelajari cara bayi melekat dengan benar saat menyusu.',
+                'icon' => 'ti-player-play',
+                'icon_class' => 'bg-red-100 text-red-600',
+                'bg_class' => 'bg-red-50',
+                'video' => true,
+                'content' => [
+                    'Posisikan bayi menghadap tubuh ibu (tummy to tummy).',
+                    'Pastikan mulut bayi terbuka lebar sebelum melekat.',
+                    'Sebagian besar areola masuk ke mulut bayi.',
+                    'Dagu bayi menyentuh payudara dan bibir terbuka ke luar.',
+                    'Perhatikan tanda pelekatan yang efektif dan nyaman.'
+                ]
+            ],
+
+            [
+                'title' => 'Posisi Menyusui',
+                'desc' => 'Berbagai posisi menyusui yang nyaman untuk ibu dan bayi.',
+                'icon' => 'ti-baby-carriage',
+                'icon_class' => 'bg-pink-100 text-pink-600',
+                'bg_class' => 'bg-pink-50',
+                'video' => true,
+                'content' => [
+                    'Posisi cradle hold (gendongan klasik).',
+                    'Posisi cross-cradle hold.',
+                    'Posisi football hold.',
+                    'Posisi menyusui sambil berbaring.',
+                    'Pilih posisi yang paling nyaman dan aman.'
+                ]
+            ],
+
+            [
+                'title' => 'Teknik Memerah ASI',
+                'desc' => 'Panduan memerah ASI secara manual maupun menggunakan pompa.',
+                'icon' => 'ti-droplet',
+                'icon_class' => 'bg-sky-100 text-sky-600',
+                'bg_class' => 'bg-sky-50',
+                'video' => true,
+                'content' => [
+                    'Cuci tangan sebelum memerah ASI.',
+                    'Lakukan pijatan ringan pada payudara.',
+                    'Gunakan teknik perah yang benar.',
+                    'Pastikan wadah penyimpanan steril.',
+                    'Beri label tanggal dan jam penyimpanan.'
+                ]
+            ],
+
+            [
+                'title' => 'Penyimpanan ASI',
+                'desc' => 'Cara menyimpan ASI perah agar kualitas tetap terjaga.',
+                'icon' => 'ti-fridge',
+                'icon_class' => 'bg-indigo-100 text-indigo-600',
+                'bg_class' => 'bg-indigo-50',
+                'video' => false,
+                'content' => [
+                    'ASI suhu ruang dapat bertahan beberapa jam.',
+                    'Simpan dalam kulkas atau freezer sesuai kebutuhan.',
+                    'Gunakan wadah khusus penyimpanan ASI.',
+                    'Jangan mengisi wadah terlalu penuh.',
+                    'Gunakan ASI yang lebih lama terlebih dahulu.'
+                ]
+            ],
+
+            [
+                'title' => 'Penanganan Masalah Laktasi',
+                'desc' => 'Solusi awal untuk berbagai tantangan selama menyusui.',
+                'icon' => 'ti-heart-handshake',
+                'icon_class' => 'bg-amber-100 text-amber-600',
+                'bg_class' => 'bg-amber-50',
+                'video' => true,
+                'content' => [
+                    'Mengatasi puting lecet dan nyeri.',
+                    'Mengatasi payudara bengkak.',
+                    'Mengatasi saluran ASI tersumbat.',
+                    'Mengatasi produksi ASI yang dirasa kurang.',
+                    'Kapan perlu berkonsultasi dengan tenaga kesehatan.'
+                ]
+            ],
+
+            [
+                'title' => 'Simulasi Praktik Menyusui',
+                'desc' => 'Latihan langkah demi langkah keterampilan menyusui.',
+                'icon' => 'ti-device-tv',
+                'icon_class' => 'bg-emerald-100 text-emerald-600',
+                'bg_class' => 'bg-emerald-50',
+                'video' => true,
+                'content' => [
+                    'Simulasi pelekatan bayi.',
+                    'Simulasi posisi menyusui.',
+                    'Simulasi memerah dan menyimpan ASI.',
+                    'Simulasi penanganan masalah umum.',
+                    'Evaluasi mandiri keterampilan menyusui.'
+                ]
+            ]
+
+        ];
+
+        return view('features.keterampilan_menyusui', compact('topics'));
+    }
+
+    
 }

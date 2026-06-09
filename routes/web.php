@@ -25,6 +25,8 @@ Route::get('/edukasi_laktasi', [FeatureController::class, 'edukasi_laktasi'])->n
 Route::get('/motivasi', [FeatureController::class, 'motivasi'])->name('motivasi');
 Route::get('/niat_target_menyusui', [FeatureController::class, 'niat_target_menyusui'])->name('niat_target_menyusui');
 Route::get('/konseling_online', [FeatureController::class, 'konseling_online'])->name('konseling_online');
+Route::get('/keterampilan_menyusui', [FeatureController::class, 'keterampilan_menyusui'])->name('keterampilan_menyusui');
+
 
 
 
