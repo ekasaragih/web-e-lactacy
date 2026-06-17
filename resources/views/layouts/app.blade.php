@@ -19,7 +19,7 @@
 
 <body class="bg-slate-50">
     <nav class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
+        <div class=" mx-auto px-6 py-4 flex justify-between">
 
             <div class="flex items-center gap-2.5">
                 <div
@@ -36,10 +36,13 @@
 
             <div class="flex items-center gap-3">
                 @auth
-                <span class="text-[13px] text-slate-500">
-                    Halo, {{ Auth::user()->full_name }}
-                </span>
+                <div class="flex items-center gap-2 text-[13px] text-slate-500">
+                    <i class="ti ti-user text-[16px]"></i>
 
+                    <span>
+                        {{ Auth::user()->full_name }}
+                    </span>
+                </div>
                 <form action="{{ route('user.logout') }}" method="POST">
                     @csrf
                     <button type="submit"
@@ -59,6 +62,14 @@
                     Daftar Sekarang
                 </a>
                 @endauth
+
+                <div class="h-5 border-l border-slate-300"></div>
+
+                <a href="{{ route('konseling_online') }}"
+                    class="flex items-center gap-2 border border-slate-200 text-slate-700 text-[13px] font-medium px-4 py-1.5 rounded-lg hover:bg-slate-50 transition">
+                    <i class="ti ti-message-circle text-[16px]"></i>
+                    Konseling Online
+                </a>
             </div>
 
         </div>

@@ -51,8 +51,8 @@
                         </h2>
 
                         <p class="text-sm text-slate-500 leading-relaxed">
-                            Mengukur kondisi awal ibu sebelum mendapatkan
-                            intervensi edukasi dan pendampingan menyusui.
+                            Mengukur pengetahuan ibu tentang laktasi dan praktik menyusui setelah intervensi edukasi dan
+                            pendampingan menyusui.
                         </p>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FeatureController extends Controller
 {
@@ -18,7 +19,8 @@ class FeatureController extends Controller
 
     public function beranda()
     {
-        return view("features.beranda");
+        $user = Auth::user();
+        return view('features.beranda', compact('user'));
     }
 
     public function edukasi_laktasi()
