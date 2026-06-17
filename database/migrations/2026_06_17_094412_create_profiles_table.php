@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('hamil_ke')->nullable();
             $table->date('tanggal_lahir_bayi')->nullable();
-            $table->string('pendidikan');
-            $table->string('pekerjaan');
+            $table->string('pendidikan')->nullable();
+            $table->string('pekerjaan')->nullable();
             $table->date('hpht')->nullable();
             $table->decimal('bb_sebelum_hamil', 5, 2)->nullable();
             $table->decimal('bb_sekarang', 5, 2)->nullable();
