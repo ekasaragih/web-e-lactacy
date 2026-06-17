@@ -99,7 +99,7 @@
             </div>
             @endif
 
-            <form method="POST" action="" x-data="registerForm()" class="space-y-5">
+            <form method="POST" action="{{ route('register') }}" x-data="registerForm()" class="space-y-5">
                 @csrf
                 <div>
                     <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3">Data Diri</p>
@@ -109,10 +109,10 @@
                             <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
                                 Nama Lengkap <span class="text-red-400">*</span>
                             </label>
-                            <input type="text" name="name" value="{{ old('name') }}" required
+                            <input type="text" name="full_name" value="{{ old('full_name') }}" required
                                 placeholder="Masukkan nama lengkap Anda"
-                                class="w-full text-[13px] border @error('name') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-xl px-4 py-2.5 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
-                            @error('name')
+                                class="w-full text-[13px] border @error('full_name') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-xl px-4 py-2.5 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
+                            @error('full_name')
                             <p class="text-[12px] text-red-500 mt-1">{{ $message }}</p>
                             @enderror
                         </div>
@@ -160,150 +160,116 @@
                                 HPHT (Hari Pertama Haid Terakhir)
                             </label>
 
-                            <input type="date" name="hpht" value="{{ old('hpht') }}" x-model="hpht"
-                                class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
+                            <input type="date" id="hpht" name="hpht" value="{{ old('hpht') }}"
+                                class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 text-slate-800 focus:ring-2 focus:ring-[var(--color-primary)]">
 
                             <p class="text-[11px] text-slate-400 mt-1">
                                 Kosongkan apabila tidak sedang hamil.
                             </p>
+
+                            <div id="usiaKehamilanCard"
+                                class="hidden mt-3 p-4 rounded-xl bg-emerald-50 border border-emerald-200">
+                                <p class="text-[12px] text-slate-500">
+                                    Perkiraan usia kehamilan
+                                </p>
+
+                                <p id="usiaKehamilanText" class="text-[15px] font-semibold text-emerald-700">
+                                </p>
+                            </div>
                         </div>
 
                         {{-- condition for hpht --}}
-                        <div x-show="!hpht" class="mt-5">
+                        {{-- Status --}}
+                        <div class="mt-5">
+
                             <label class="block text-[12px] font-semibold text-slate-600 mb-2">
                                 Status Saat Ini
                             </label>
 
-                            <div class="grid grid-cols-2 gap-3">
+                            <ul class="grid w-full gap-3 md:grid-cols-2">
+
                                 {{-- Belum hamil --}}
-                                <label
-                                    class="relative flex items-center gap-3 border rounded-xl px-4 py-3 cursor-pointer transition-all"
-                                    :class="status === 'belum_hamil'
-                                ? 'border-[var(--color-primary)] bg-emerald-50'
-                                : 'border-slate-200 bg-white hover:border-slate-300'">
-                                    <input type="radio" name="status" value="belum_hamil" x-model="status"
-                                        class="sr-only">
+                                <li>
+                                    <input type="radio" id="belum_hamil" name="status" value="belum_hamil"
+                                        class="hidden peer">
 
-                                    <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0"
-                                        :class="status === 'belum_hamil'
-                                    ? 'border-[var(--color-primary)]'
-                                    : 'border-slate-300'">
-                                        <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]" :class="status === 'belum_hamil'
-                                        ? 'opacity-100'
-                                        : 'opacity-0'">
+                                    <label for="belum_hamil" class="inline-flex items-center justify-between w-full p-4 text-slate-500 bg-white border border-slate-200 rounded-2xl cursor-pointer
+                                        peer-checked:border-[var(--color-primary)]
+                                        peer-checked:bg-pink-50
+                                        peer-checked:text-[var(--color-primary)]
+                                        hover:bg-slate-50 transition">
+
+                                        <div>
+                                            <div class="font-semibold text-[13px]">
+                                                Belum Hamil
+                                            </div>
+
+                                            <div class="text-[11px] text-slate-400 mt-1">
+                                                Sedang merencanakan kehamilan
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div>
-                                        <p class="text-[13px] font-semibold text-slate-800">
-                                            Belum Hamil
-                                        </p>
+                                        <i class="ti ti-heart text-xl"></i>
 
-                                        <p class="text-[11px] text-slate-400">
-                                            Sedang merencanakan kehamilan
-                                        </p>
-                                    </div>
-                                </label>
+                                    </label>
+                                </li>
 
                                 {{-- Sudah melahirkan --}}
-                                <label
-                                    class="relative flex items-center gap-3 border rounded-xl px-4 py-3 cursor-pointer transition-all"
-                                    :class="status === 'sudah_melahirkan'
-                                ? 'border-[var(--color-primary)] bg-emerald-50'
-                                : 'border-slate-200 bg-white hover:border-slate-300'">
-                                    <input type="radio" name="status" value="sudah_melahirkan" x-model="status"
-                                        class="sr-only">
+                                <li>
+                                    <input type="radio" id="sudah_melahirkan" name="status" value="sudah_melahirkan"
+                                        class="hidden peer">
 
-                                    <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0"
-                                        :class="status === 'sudah_melahirkan'
-                                    ? 'border-[var(--color-primary)]'
-                                    : 'border-slate-300'">
-                                        <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]" :class="status === 'sudah_melahirkan'
-                                        ? 'opacity-100'
-                                        : 'opacity-0'">
+                                    <label for="sudah_melahirkan" class="inline-flex items-center justify-between w-full p-4 text-slate-500 bg-white border border-slate-200 rounded-2xl cursor-pointer
+                                        peer-checked:border-[var(--color-primary)]
+                                        peer-checked:bg-sky-50
+                                        peer-checked:text-[var(--color-primary)]
+                                        hover:bg-slate-50 transition">
+
+                                        <div>
+                                            <div class="font-semibold text-[13px]">
+                                                Sudah Melahirkan
+                                            </div>
+
+                                            <div class="text-[11px] text-slate-400 mt-1">
+                                                Sedang menyusui
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div>
-                                        <p class="text-[13px] font-semibold text-slate-800">
-                                            Sudah Melahirkan
-                                        </p>
+                                        <i class="ti ti-baby-carriage text-xl"></i>
 
-                                        <p class="text-[11px] text-slate-400">
-                                            Sedang menyusui
-                                        </p>
-                                    </div>
-                                </label>
-                            </div>
+                                    </label>
+                                </li>
+
+                            </ul>
+
                         </div>
 
                         {{-- tanggal lahir bayi --}}
-                        <div x-show="!hpht && status === 'sudah_melahirkan'" x-transition class="mt-5"
-                            style="display:none">
+                        <div id="bayiSection" class="hidden mt-5">
 
                             <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
                                 Tanggal Lahir Bayi
                             </label>
 
-                            <input type="date" name="tanggal_lahir_bayi" value="{{ old('tanggal_lahir_bayi') }}"
-                                class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
+                            <input type="date" id="tanggal_lahir_bayi" name="tanggal_lahir_bayi"
+                                class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5">
 
-                            <p class="text-[11px] text-slate-400 mt-1">
-                                Umur bayi akan dihitung otomatis.
-                            </p>
+                            <div id="usiaBayiCard" class="hidden mt-3 rounded-xl border border-sky-200 bg-sky-50 p-4">
 
-                        </div>
+                                <p class="text-[12px] text-slate-500">
+                                    Perkiraan usia bayi
+                                </p>
 
-                        <div x-show="sudahMelahirkan === false" x-transition:enter="transition ease-out duration-200"
-                            x-transition:enter-start="opacity-0 -translate-y-2"
-                            x-transition:enter-end="opacity-100 translate-y-0"
-                            x-transition:leave="transition ease-in duration-150"
-                            x-transition:leave-start="opacity-100 translate-y-0"
-                            x-transition:leave-end="opacity-0 -translate-y-2" style="display:none">
-                            <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
-                                Usia Kehamilan <span class="text-red-400">*</span>
-                            </label>
-                            <div class="relative">
-                                <input type="number" name="usia_kehamilan" value="{{ old('usia_kehamilan') }}" min="1"
-                                    max="42" placeholder="Misalnya: 28" :required="sudahMelahirkan === false"
-                                    class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 pr-16 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
-                                <span
-                                    class="absolute right-4 top-1/2 -translate-y-1/2 text-[12px] text-slate-400 font-medium">minggu</span>
+                                <p id="usiaBayiText" class="text-[15px] font-semibold text-sky-700 mt-1">
+                                </p>
+
                             </div>
-                            <p class="text-[11px] text-slate-400 mt-1">Rentang 1–42 minggu</p>
-                        </div>
 
-                        <div x-show="sudahMelahirkan === true" x-transition:enter="transition ease-out duration-200"
-                            x-transition:enter-start="opacity-0 -translate-y-2"
-                            x-transition:enter-end="opacity-100 translate-y-0"
-                            x-transition:leave="transition ease-in duration-150"
-                            x-transition:leave-start="opacity-100 translate-y-0"
-                            x-transition:leave-end="opacity-0 -translate-y-2" style="display:none">
-                            <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
-                                Usia Bayi <span class="text-red-400">*</span>
-                            </label>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div class="relative">
-                                    <input type="number" name="usia_bayi_bulan" value="{{ old('usia_bayi_bulan') }}"
-                                        min="0" max="24" placeholder="0" :required="sudahMelahirkan === true"
-                                        class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 pr-14 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
-                                    <span
-                                        class="absolute right-4 top-1/2 -translate-y-1/2 text-[12px] text-slate-400 font-medium">bulan</span>
-                                </div>
-                                <div class="relative">
-                                    <input type="number" name="usia_bayi_hari" value="{{ old('usia_bayi_hari') }}"
-                                        min="0" max="30" placeholder="0"
-                                        class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 pr-10 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
-                                    <span
-                                        class="absolute right-4 top-1/2 -translate-y-1/2 text-[12px] text-slate-400 font-medium">hari</span>
-                                </div>
-                            </div>
-                            <p class="text-[11px] text-slate-400 mt-1">Isi usia bayi saat ini</p>
                         </div>
-
                     </div>
                 </div>
 
+                {{-- akun --}}
                 <div class="pt-2">
                     <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3">Kontak & Akun</p>
                     <div class="space-y-3">
@@ -318,13 +284,13 @@
                                     <span class="text-[13px] text-slate-500 font-medium">🇮🇩</span>
                                     <span class="text-[13px] text-slate-500 font-medium">+62</span>
                                 </div>
-                                <input type="tel" name="no_hp" value="{{ old('no_hp') }}" required
+                                <input type="tel" name="phone_num" value="{{ old('phone_num') }}" required
                                     placeholder="812xxxxxxxx"
-                                    class="flex-1 text-[13px] border @error('no_hp') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-r-xl px-4 py-2.5 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
+                                    class="flex-1 text-[13px] border @error('phone_num') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-r-xl px-4 py-2.5 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
                             </div>
                             <p class="text-[11px] text-slate-400 mt-1">Nomor ini akan digunakan untuk komunikasi terkait
                                 penelitian dan konsultasi</p>
-                            @error('no_hp')
+                            @error('phone_num')
                             <p class="text-[12px] text-red-500 mt-1">{{ $message }}</p>
                             @enderror
                         </div>
@@ -341,42 +307,61 @@
                             @enderror
                         </div>
 
+                        {{-- password --}}
                         <div>
                             <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
                                 Kata Sandi <span class="text-red-400">*</span>
                             </label>
-                            <div class="relative" x-data="{ show: false }">
-                                <input :type="show ? 'text' : 'password'" name="password" required
-                                    placeholder="Minimal 8 karakter"
-                                    class="w-full text-[13px] border @error('password') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-xl px-4 py-2.5 pr-11 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
-                                <button type="button" @click="show = !show"
-                                    class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors">
-                                    <i class="ti text-[17px]" :class="show ? 'ti-eye-off' : 'ti-eye'"></i>
+
+                            <div
+                                class="flex items-center border @error('password') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-xl focus-within:ring-2 focus-within:ring-[var(--color-primary)] focus-within:border-[var(--color-primary)] transition-all">
+
+                                <input type="password" id="password" name="password" required
+                                    placeholder="Minimal 6 karakter"
+                                    class="flex-1 text-[13px] px-4 py-2.5 bg-transparent outline-none text-slate-800 placeholder:text-slate-300 rounded-l-xl">
+
+                                <button type="button" id="togglePassword"
+                                    class="px-4 text-slate-400 hover:text-slate-600 transition-colors">
+                                    <i class="ti ti-eye text-[17px]"></i>
                                 </button>
+
                             </div>
+
                             @error('password')
-                            <p class="text-[12px] text-red-500 mt-1">{{ $message }}</p>
+                            <p class="text-[12px] text-red-500 mt-1">
+                                {{ $message }}
+                            </p>
                             @enderror
                         </div>
 
+
+                        {{-- confirm password --}}
                         <div>
                             <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
                                 Konfirmasi Kata Sandi <span class="text-red-400">*</span>
                             </label>
-                            <div class="relative" x-data="{ show: false }">
-                                <input :type="show ? 'text' : 'password'" name="password_confirmation" required
+
+                            <div
+                                class="flex items-center border border-slate-200 bg-white rounded-xl focus-within:ring-2 focus-within:ring-[var(--color-primary)] focus-within:border-[var(--color-primary)] transition-all">
+
+                                <input type="password" id="password_confirmation" name="password_confirmation" required
                                     placeholder="Ulangi kata sandi Anda"
-                                    class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 pr-11 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
-                                <button type="button" @click="show = !show"
-                                    class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors">
-                                    <i class="ti text-[17px]" :class="show ? 'ti-eye-off' : 'ti-eye'"></i>
+                                    class="flex-1 text-[13px] px-4 py-2.5 bg-transparent outline-none text-slate-800 placeholder:text-slate-300 rounded-l-xl">
+
+                                <button type="button" id="togglePasswordConfirm"
+                                    class="px-4 text-slate-400 hover:text-slate-600 transition-colors">
+
+                                    <i class="ti ti-eye text-[17px]"></i>
+
                                 </button>
+
                             </div>
                         </div>
 
                     </div>
                 </div>
 
+                {{-- persetujuan penelitian --}}
                 <div class="pt-2">
                     <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3">Persetujuan</p>
 
@@ -437,12 +422,57 @@
 </div>
 
 <script>
-    function registerForm() {
-        return {
-            hpht: '',
-            status: ''
+    const hphtInput = document.getElementById("hpht");
+    const usiaKehamilanCard = document.getElementById("usiaKehamilanCard");
+    const usiaKehamilanText = document.getElementById("usiaKehamilanText");
+    const radioBelumHamil = document.getElementById("belum_hamil");
+    const radioSudahMelahirkan = document.getElementById("sudah_melahirkan");
+    const bayiSection = document.getElementById("bayiSection");
+
+    // HPHT
+    hphtInput.addEventListener("change", function () {
+    
+        if (this.value) {
+            const hpht = new Date(this.value);
+            const now = new Date();
+            const diffDay = Math.floor((now - hpht) / (1000 * 60 * 60 * 24));
+            const minggu = Math.floor(diffDay / 7);
+            usiaKehamilanText.innerHTML = minggu + " minggu";
+            usiaKehamilanCard.classList.remove("hidden");
         }
-    }
+        else {
+            usiaKehamilanCard.classList.add("hidden");
+        }
+    });
+    
+    // Status
+    radioBelumHamil.addEventListener("change", () => {
+        bayiSection.classList.add("hidden");
+    });
+    
+    radioSudahMelahirkan.addEventListener("change", () => {
+        bayiSection.classList.remove("hidden");
+    });
+
+    const tanggalLahirBayi = document.getElementById("tanggal_lahir_bayi");
+    const usiaBayiCard = document.getElementById("usiaBayiCard");
+    const usiaBayiText = document.getElementById("usiaBayiText");
+    
+    tanggalLahirBayi.addEventListener("change", function () {
+        const dob = new Date(this.value);
+        const now = new Date();
+        
+        let bulan = (now.getFullYear() - dob.getFullYear()) * 12 + (now.getMonth() - dob.getMonth());
+        let hari = now.getDate() - dob.getDate();
+        
+        if (hari < 0) { 
+            bulan--; 
+            hari +=30; 
+        } 
+        
+        usiaBayiText.innerHTML=`${bulan} bulan ${hari} hari`;
+        usiaBayiCard.classList.remove("hidden");
+    });
 </script>
 
 <script>
@@ -520,11 +550,36 @@
         function showError(message){
             errorText.textContent = message;
             errorText.classList.remove("hidden");
-
         }
 
         function hideError(){
             errorText.classList.add("hidden");
         }
+
+        function togglePassword(inputId, toggleId) {
+            const input = document.getElementById(inputId);
+            const toggle = document.getElementById(toggleId);
+
+            toggle.addEventListener("click", function () {
+                const icon = toggle.querySelector("i");
+
+                if (input.type === "password") {
+
+                    input.type = "text";
+
+                    icon.classList.remove("ti-eye");
+                    icon.classList.add("ti-eye-off");
+
+                } else {
+                    input.type = "password";
+
+                    icon.classList.remove("ti-eye-off");
+                    icon.classList.add("ti-eye");
+                }
+            });
+        }
+
+        togglePassword("password", "togglePassword");
+        togglePassword("password_confirmation", "togglePasswordConfirm");
     });
 </script>

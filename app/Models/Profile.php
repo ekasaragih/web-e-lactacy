@@ -21,7 +21,6 @@ class Profile extends Model
         'bb_sebelum_hamil', 
         'bb_sekarang', 
         'masalah_kehamilan',
-        'dosis_obat_fe',
         'persetujuan_penelitian',
         'persetujuan_data',
     ];

@@ -34,16 +34,31 @@
                 </div>
             </div>
 
-            <div class="flex items-center gap-2">
-                {{-- nanti ini kalau udah login gantinya jadi logout --}}
+            <div class="flex items-center gap-3">
+                @auth
+                <span class="text-[13px] text-slate-500">
+                    Halo, {{ Auth::user()->full_name }}
+                </span>
+
+                <form action="{{ route('user.logout') }}" method="POST">
+                    @csrf
+                    <button type="submit"
+                        class="bg-red-50 border border-red-200 text-red-600 text-[13px] font-medium px-4 py-1.5 rounded-lg hover:bg-red-100 transition">
+                        Logout
+                    </button>
+                </form>
+
+                @else
                 <a href="{{ route('user.login') }}"
-                    class="border border-slate-200 text-slate-700 text-[13px] font-medium px-4 py-1.5 rounded-lg hover:bg-slate-50 transition-colors">
+                    class="border border-slate-200 text-slate-700 text-[13px] font-medium px-4 py-1.5 rounded-lg hover:bg-slate-50 transition">
                     Masuk
                 </a>
+
                 <a href="{{ route('user.register') }}"
-                    class="bg-[var(--color-primary)] text-white text-[13px] font-semibold px-4 py-1.5 rounded-lg hover:bg-[--color-primary-dk] transition-colors">
+                    class="bg-[var(--color-primary)] text-white text-[13px] font-semibold px-4 py-1.5 rounded-lg hover:bg-[var(--color-primary-dk)] transition">
                     Daftar Sekarang
                 </a>
+                @endauth
             </div>
 
         </div>
