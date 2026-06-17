@@ -643,6 +643,21 @@ class FeatureController extends Controller
             $request
         );
 
+        PreTestScore::updateOrCreate(
+            [
+                'user_id' => auth()->id()
+            ],
+            [
+                'knowledge_score' => $result['knowledgeScore'],
+                'sikap_score' => $result['results']['Sikap']['score'],
+                'motivasi_score' => $result['results']['Motivasi']['score'],
+                'self_efficacy_score' => $result['results']['Self-Efficacy']['score'],
+                'niat_score' => $result['results']['Niat']['score'],
+                'dukungan_sosial_score' => $result['results']['Dukungan Sosial']['score'],
+                'taken_at' => now()
+            ]
+        );
+
         return view('features.pre_test', [
             'questions' => $questions,
             'showResult' => true,
@@ -659,6 +674,21 @@ class FeatureController extends Controller
         $result = $this->calculateScore(
             $questions,
             $request
+        );
+
+        PostTestScore::updateOrCreate(
+            [
+                'user_id' => auth()->id()
+            ],
+            [
+                'knowledge_score' => $result['knowledgeScore'],
+                'motivasi_score' => $result['results']['Motivasi']['score'],
+                'self_efficacy_score' => $result['results']['Self-Efficacy']['score'],
+                'niat_score' => $result['results']['Niat']['score'],
+                'keterampilan_score' => $result['results']['Keterampilan']['score'],
+                'perilaku_score' => $result['results']['Perilaku']['score'],
+                'taken_at' => now()
+            ]
         );
 
         return view('features.post_test', [

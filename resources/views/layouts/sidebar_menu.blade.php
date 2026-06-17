@@ -2,6 +2,45 @@
     Program Utama
 </p>
 
+@php
+$pretestDone = auth()->user()?->preTestScore !== null;
+@endphp
+
+@php
+$menus = [
+[
+'route'=>'edukasi_laktasi',
+'icon'=>'ti-book',
+'label'=>'Edukasi Laktasi'
+],
+[
+'route'=>'motivasi',
+'icon'=>'ti-heart-handshake',
+'label'=>'Motivasi & Self-Efficacy'
+],
+[
+'route'=>'niat_target_menyusui',
+'icon'=>'ti-target-arrow',
+'label'=>'Niat & Target Menyusui'
+],
+[
+'route'=>'keterampilan_menyusui',
+'icon'=>'ti-video',
+'label'=>'Keterampilan Menyusui'
+],
+[
+'route'=>'monitoring_reminder',
+'icon'=>'ti-chart-line',
+'label'=>'Monitoring'
+],
+[
+'route'=>'post_test',
+'icon'=>'ti-clipboard-check',
+'label'=>'Post-Test'
+]
+];
+@endphp
+
 <a href="{{ route('beranda') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
         {{ request()->routeIs('beranda')
             ? 'bg-pink-50 text-pink-600 font-medium'
@@ -18,58 +57,30 @@
     Pre-Test
 </a>
 
-<a href="{{ route('edukasi_laktasi') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
-        {{ request()->routeIs('edukasi_laktasi')
-            ? 'bg-pink-50 text-pink-600 font-medium'
-            : 'hover:bg-slate-100 text-slate-700' }}">
-    <i class="ti ti-book"></i>
-    Edukasi Laktasi
+@foreach($menus as $menu)
+@if($pretestDone)
+
+<a href="{{ route($menu['route']) }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition 
+        {{ request()->routeIs($menu['route']) 
+        ? 'bg-pink-50 text-pink-600 font-medium' 
+        : 'hover:bg-slate-100 text-slate-700' }}">
+    <i class="ti {{ $menu['icon'] }}"></i>
+    {{ $menu['label'] }}
 </a>
 
-<a href="{{ route('motivasi') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
-        {{ request()->routeIs('motivasi')
-            ? 'bg-pink-50 text-pink-600 font-medium'
-            : 'hover:bg-slate-100 text-slate-700' }}">
-    <i class="ti ti-heart-handshake"></i>
-    Motivasi & Self-Efficacy
-</a>
+@else
+<div class="flex items-center justify-between px-4 py-3 rounded-xl bg-slate-50 text-slate-400">
 
-<a href="{{ route('niat_target_menyusui') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
-        {{ request()->routeIs('niat_target_menyusui')
-            ? 'bg-pink-50 text-pink-600 font-medium'
-            : 'hover:bg-slate-100 text-slate-700' }}">
-    <i class="ti ti-target-arrow"></i>
-    Niat & Target Menyusui
-</a>
+    <div class="flex items-center gap-3">
+        <i class="ti {{ $menu['icon'] }}"></i>
+        {{ $menu['label'] }}
+    </div>
 
-<a href="{{ route('keterampilan_menyusui') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
-        {{ request()->routeIs('keterampilan_menyusui')
-            ? 'bg-pink-50 text-pink-600 font-medium'
-            : 'hover:bg-slate-100 text-slate-700' }}">
-    <i class="ti ti-video"></i>
-    Keterampilan Menyusui
-</a>
+    <i class="ti ti-lock text-[14px]"></i>
 
-<a href="{{ route('monitoring_reminder') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
-        {{ request()->routeIs('monitoring_reminder')
-            ? 'bg-pink-50 text-pink-600 font-medium'
-            : 'hover:bg-slate-100 text-slate-700' }}">
-    <i class="ti ti-chart-line"></i>
-    Monitoring
-</a>
-
-<a href="{{ route('post_test') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
-        {{ request()->routeIs('post_test')
-            ? 'bg-pink-50 text-pink-600 font-medium'
-            : 'hover:bg-slate-100 text-slate-700' }}">
-    <i class="ti ti-clipboard-check"></i>
-    Post-Test
-</a>
-
-<a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-100 transition">
-    <i class="ti ti-award"></i>
-    Outcome ASI Eksklusif
-</a>
+</div>
+@endif
+@endforeach
 
 {{-- <a href="{{ route('konseling_online') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition
         {{ request()->routeIs('konseling_online')

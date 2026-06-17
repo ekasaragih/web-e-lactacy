@@ -54,4 +54,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+
+    public function preTestScore()
+    {
+        return $this->hasOne(PreTestScore::class);
+    }
+
+    public function postTestScore()
+    {
+        return $this->hasOne(PostTestScore::class);
+    }
 }
