@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/keterampilan_menyusui', [FeatureController::class, 'keterampilan_menyusui'])->name('keterampilan_menyusui');
     Route::get('/monitoring_reminder', [FeatureController::class, 'monitoring_reminder'])->name('monitoring_reminder');
     Route::get('/post_test', [FeatureController::class, 'post_test'])->name('post_test');
-    //dukungan sosial
+    Route::get('/dukungan_sosial', [FeatureController::class, 'dukungan_sosial'])->name('dukungan_sosial');
 
     Route::post('/pre_test/submit', [FeatureController::class, 'submit_pretest'])->name('pre_test.submit');
     Route::post('/post_test/submit', [FeatureController::class, 'submit_posttest'])->name('post_test.submit');

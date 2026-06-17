@@ -517,6 +517,8 @@ $reminders = $hasPretest ? [
                 </div>
             </div>
         </div>
+
+        @include('layouts.footer')
     </main>
 
 </div>
