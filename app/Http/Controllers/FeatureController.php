@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\PreTestScore;
+use App\Models\PostTestScore;
 
 class FeatureController extends Controller
 {
@@ -297,6 +299,11 @@ class FeatureController extends Controller
     public function dukungan_sosial()
     {
         return view("features.dukungan_sosial");
+    }
+
+    public function hubungi_kami()
+    {
+        return view("features.hubungi_kami");
     }
 
     private function getQuestions()

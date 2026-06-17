@@ -41,6 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/monitoring_reminder', [FeatureController::class, 'monitoring_reminder'])->name('monitoring_reminder');
     Route::get('/post_test', [FeatureController::class, 'post_test'])->name('post_test');
     Route::get('/dukungan_sosial', [FeatureController::class, 'dukungan_sosial'])->name('dukungan_sosial');
+    Route::get('/outcome_asi_eksklusif', [FeatureController::class, 'outcome_asi_eksklusif'])->name('outcome_asi_eksklusif');
+    Route::get('/hubungi_kami', [FeatureController::class, 'hubungi_kami'])->name('hubungi_kami');
+
+
 
     Route::post('/pre_test/submit', [FeatureController::class, 'submit_pretest'])->name('pre_test.submit');
     Route::post('/post_test/submit', [FeatureController::class, 'submit_posttest'])->name('post_test.submit');

@@ -37,6 +37,11 @@ $menus = [
 'route'=>'post_test',
 'icon'=>'ti-clipboard-check',
 'label'=>'Post-Test'
+],
+[
+'route'=>'outcome_asi_eksklusif',
+'icon'=>'ti-award',
+'label'=>'Outcome ASI Eksklusif'
 ]
 ];
 @endphp
