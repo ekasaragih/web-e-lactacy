@@ -26,7 +26,7 @@
 
             <a href="{{ route('beranda') }}" class="flex items-center gap-3 mb-auto">
                 <div class="w-9 h-9 rounded-[10px] bg-white/20 flex items-center justify-center">
-                    <i class="ti ti-droplet-half-2 text-white text-[17px]"></i>
+                    <i class="ti ti-heart text-white text-[17px]"></i>
                 </div>
                 <div class="leading-tight">
                     <span class="block font-semibold text-[16px] text-white tracking-tight">E-Lactacy</span>
