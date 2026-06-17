@@ -39,8 +39,8 @@
             </div>
 
             <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-8 flex gap-5 items-start">
-                <div class="w-12 h-12 rounded-xl bg-pink-500 flex items-center justify-center shrink-0">
-                    <i class="ti ti-heart-handshake text-white text-xl"></i>
+                <div class="w-12 h-12 rounded-xl bg-[var(--color-primary)] flex items-center justify-center shrink-0">
+                    <i class="ti ti-book text-white text-xl"></i>
                 </div>
                 <div>
                     <h2 class="font-semibold text-slate-800 mb-1">Tujuan Modul</h2>

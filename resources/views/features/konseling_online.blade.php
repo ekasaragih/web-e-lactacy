@@ -24,23 +24,10 @@
         </div>
 
         <div class="px-8 py-8">
-            <div class="flex items-center justify-between mb-8">
-                <a href="{{ route('niat_target_menyusui') }}"
-                    class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-700 transition">
-                    <i class="ti ti-arrow-left"></i>
-                    Dukungan Sosial
-                </a>
-
-                <a href=""
-                    class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-[var(--color-primary-dk)] transition">
-                    Keterampilan Menyusui
-                    <i class="ti ti-arrow-right"></i>
-                </a>
-            </div>
 
             <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-8 flex gap-5 items-start">
                 <div class="w-12 h-12 rounded-xl bg-[var(--color-primary)] flex items-center justify-center shrink-0">
-                    <i class="ti ti-headset text-white text-xl"></i>
+                    <i class="ti ti-book text-white text-xl"></i>
                 </div>
 
                 <div>

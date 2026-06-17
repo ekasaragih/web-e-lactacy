@@ -17,11 +17,19 @@
                 Halo, Ibu
             </h2>
 
-            <p class="text-slate-500 mt-3 max-w-2xl">
-                Selamat datang di E-Lactacy. Mari lanjutkan perjalanan menyusui Anda
-                melalui edukasi, pendampingan profesional, dan pemantauan yang terstruktur.
+            <p class="text-slate-500 mt-3">
+                Selamat datang di E-Lactacy. Mari lanjutkan perjalanan menyusui Anda melalui edukasi, pendampingan
+                profesional, dan pemantauan yang terstruktur.
             </p>
 
+        </div>
+
+        <div class="flex items-center justify-end my-8">
+            <a href="{{ route('pre_test') }}"
+                class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-[var(--color-primary-dk)] transition">
+                Pre-Test
+                <i class="ti ti-arrow-right"></i>
+            </a>
         </div>
 
         <div class="grid lg:grid-cols-3 gap-6 mt-8">

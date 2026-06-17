@@ -25,7 +25,7 @@
 
         <div class="px-8 py-8">
             <div class="flex items-center justify-between mb-8">
-                <a href=""
+                <a href="{{ route('pre_test') }}"
                     class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-700 transition">
                     <i class="ti ti-arrow-left"></i>
                     Pre-Test

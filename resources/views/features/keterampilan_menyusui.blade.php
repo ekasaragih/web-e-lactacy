@@ -26,10 +26,10 @@
 
         <div class="px-8 py-8">
             <div class="flex items-center justify-between mb-8">
-                <a href="{{ route('konseling_online') }}"
+                <a href="{{ route('niat_target_menyusui') }}"
                     class="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-700 transition">
                     <i class="ti ti-arrow-left"></i>
-                    Konseling Online
+                    Niat & Target Menyusui
                 </a>
 
                 <a href="{{ route('monitoring_reminder') }}"
@@ -41,7 +41,7 @@
 
             <div class="bg-white border border-slate-200 rounded-2xl p-6 mb-8 flex gap-5 items-start">
                 <div class="w-12 h-12 rounded-xl bg-[var(--color-primary)] flex items-center justify-center shrink-0">
-                    <i class="ti ti-school text-white text-xl"></i>
+                    <i class="ti ti-book text-white text-xl"></i>
                 </div>
 
                 <div>

@@ -42,7 +42,7 @@
                 <div class="flex gap-4">
                     <div
                         class="w-12 h-12 rounded-xl bg-[var(--color-primary)] flex items-center justify-center shrink-0">
-                        <i class="ti ti-target text-white text-xl"></i>
+                        <i class="ti ti-book text-white text-xl"></i>
                     </div>
 
                     <div>
