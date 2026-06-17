@@ -22,7 +22,7 @@
         </div>
 
         <div class="relative z-10 flex flex-col h-full px-10 py-10">
-            <a href="{{ route('beranda') }}" class="flex items-center gap-3 mb-auto">
+            <a href="{{ route('welcome') }}" class="flex items-center gap-3 mb-auto">
                 <div class="w-9 h-9 rounded-[10px] bg-white/20 flex items-center justify-center">
                     <i class="ti ti-heart text-white text-[17px]"></i>
                 </div>
