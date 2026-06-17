@@ -104,6 +104,7 @@
                 <div>
                     <p class="text-[11px] font-bold uppercase tracking-widest text-slate-400 mb-3">Data Diri</p>
                     <div class="space-y-3">
+                        {{-- full name --}}
                         <div>
                             <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
                                 Nama Lengkap <span class="text-red-400">*</span>
@@ -116,6 +117,7 @@
                             @enderror
                         </div>
 
+                        {{-- dob ibu --}}
                         <div>
                             <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
                                 Tanggal Lahir <span class="text-red-400">*</span>
@@ -152,47 +154,104 @@
                             @enderror
                         </div>
 
+                        {{-- hpht date --}}
                         <div>
-                            <label class="block text-[12px] font-semibold text-slate-600 mb-2">
-                                Status Kehamilan / Persalinan <span class="text-red-400">*</span>
+                            <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
+                                HPHT (Hari Pertama Haid Terakhir)
                             </label>
+
+                            <input type="date" name="hpht" value="{{ old('hpht') }}" x-model="hpht"
+                                class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
+
+                            <p class="text-[11px] text-slate-400 mt-1">
+                                Kosongkan apabila tidak sedang hamil.
+                            </p>
+                        </div>
+
+                        {{-- condition for hpht --}}
+                        <div x-show="!hpht" class="mt-5">
+                            <label class="block text-[12px] font-semibold text-slate-600 mb-2">
+                                Status Saat Ini
+                            </label>
+
                             <div class="grid grid-cols-2 gap-3">
+                                {{-- Belum hamil --}}
                                 <label
                                     class="relative flex items-center gap-3 border rounded-xl px-4 py-3 cursor-pointer transition-all"
-                                    :class="sudahMelahirkan === false
-                                        ? 'border-[var(--color-primary)] bg-emerald-50'
-                                        : 'border-slate-200 bg-white hover:border-slate-300'">
-                                    <input type="radio" name="sudah_melahirkan" value="0" x-model="sudahMelahirkan"
-                                        :value="false" class="sr-only">
-                                    <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all"
-                                        :class="sudahMelahirkan === false ? 'border-[var(--color-primary)]' : 'border-slate-300'">
-                                        <div class="w-2 h-2 rounded-full bg-[var(--color-primary)] transition-all"
-                                            :class="sudahMelahirkan === false ? 'opacity-100' : 'opacity-0'"></div>
+                                    :class="status === 'belum_hamil'
+                                ? 'border-[var(--color-primary)] bg-emerald-50'
+                                : 'border-slate-200 bg-white hover:border-slate-300'">
+                                    <input type="radio" name="status" value="belum_hamil" x-model="status"
+                                        class="sr-only">
+
+                                    <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0"
+                                        :class="status === 'belum_hamil'
+                                    ? 'border-[var(--color-primary)]'
+                                    : 'border-slate-300'">
+                                        <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]" :class="status === 'belum_hamil'
+                                        ? 'opacity-100'
+                                        : 'opacity-0'">
+                                        </div>
                                     </div>
+
                                     <div>
-                                        <p class="text-[13px] font-semibold text-slate-800">Belum Melahirkan</p>
-                                        <p class="text-[11px] text-slate-400">Sedang hamil</p>
+                                        <p class="text-[13px] font-semibold text-slate-800">
+                                            Belum Hamil
+                                        </p>
+
+                                        <p class="text-[11px] text-slate-400">
+                                            Sedang merencanakan kehamilan
+                                        </p>
                                     </div>
                                 </label>
 
+                                {{-- Sudah melahirkan --}}
                                 <label
                                     class="relative flex items-center gap-3 border rounded-xl px-4 py-3 cursor-pointer transition-all"
-                                    :class="sudahMelahirkan === true
-                                        ? 'border-[var(--color-primary)] bg-emerald-50'
-                                        : 'border-slate-200 bg-white hover:border-slate-300'">
-                                    <input type="radio" name="sudah_melahirkan" value="1" x-model="sudahMelahirkan"
-                                        :value="true" class="sr-only">
-                                    <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 transition-all"
-                                        :class="sudahMelahirkan === true ? 'border-[var(--color-primary)]' : 'border-slate-300'">
-                                        <div class="w-2 h-2 rounded-full bg-[var(--color-primary)] transition-all"
-                                            :class="sudahMelahirkan === true ? 'opacity-100' : 'opacity-0'"></div>
+                                    :class="status === 'sudah_melahirkan'
+                                ? 'border-[var(--color-primary)] bg-emerald-50'
+                                : 'border-slate-200 bg-white hover:border-slate-300'">
+                                    <input type="radio" name="status" value="sudah_melahirkan" x-model="status"
+                                        class="sr-only">
+
+                                    <div class="w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0"
+                                        :class="status === 'sudah_melahirkan'
+                                    ? 'border-[var(--color-primary)]'
+                                    : 'border-slate-300'">
+                                        <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]" :class="status === 'sudah_melahirkan'
+                                        ? 'opacity-100'
+                                        : 'opacity-0'">
+                                        </div>
                                     </div>
+
                                     <div>
-                                        <p class="text-[13px] font-semibold text-slate-800">Sudah Melahirkan</p>
-                                        <p class="text-[11px] text-slate-400">Sedang menyusui</p>
+                                        <p class="text-[13px] font-semibold text-slate-800">
+                                            Sudah Melahirkan
+                                        </p>
+
+                                        <p class="text-[11px] text-slate-400">
+                                            Sedang menyusui
+                                        </p>
                                     </div>
                                 </label>
                             </div>
+                        </div>
+
+                        {{-- tanggal lahir bayi --}}
+                        <div x-show="!hpht && status === 'sudah_melahirkan'" x-transition class="mt-5"
+                            style="display:none">
+
+                            <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
+                                Tanggal Lahir Bayi
+                            </label>
+
+                            <input type="date" name="tanggal_lahir_bayi" value="{{ old('tanggal_lahir_bayi') }}"
+                                class="w-full text-[13px] border border-slate-200 bg-white rounded-xl px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
+
+                            <p class="text-[11px] text-slate-400 mt-1">
+                                Umur bayi akan dihitung otomatis.
+                            </p>
+
                         </div>
 
                         <div x-show="sudahMelahirkan === false" x-transition:enter="transition ease-out duration-200"
@@ -240,56 +299,6 @@
                                 </div>
                             </div>
                             <p class="text-[11px] text-slate-400 mt-1">Isi usia bayi saat ini</p>
-                        </div>
-
-                        <div>
-                            <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
-                                Pendidikan Terakhir <span class="text-red-400">*</span>
-                            </label>
-                            <div class="relative">
-                                <select name="pendidikan" required
-                                    class="w-full text-[13px] border @error('pendidikan') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-xl px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all appearance-none cursor-pointer">
-                                    <option value="" disabled {{ old('pendidikan') ? '' : 'selected' }}>Pilih pendidikan
-                                        terakhir</option>
-                                    @foreach(['SD' => 'SD / Sederajat', 'SMP' => 'SMP / Sederajat', 'SMA' => 'SMA / SMK
-                                    / Sederajat', 'D3' => 'Diploma (D3/D4)', 'S1' => 'Sarjana (S1)', 'S2' => 'Magister
-                                    (S2)', 'S3' => 'Doktor (S3)'] as $val => $label)
-                                    <option value="{{ $val }}" {{ old('pendidikan')==$val ? 'selected' : '' }}>{{ $label
-                                        }}</option>
-                                    @endforeach
-                                </select>
-                                <i
-                                    class="ti ti-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[15px] pointer-events-none"></i>
-                            </div>
-                            @error('pendidikan')
-                            <p class="text-[12px] text-red-500 mt-1">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-                        {{-- Pekerjaan --}}
-                        <div>
-                            <label class="block text-[12px] font-semibold text-slate-600 mb-1.5">
-                                Pekerjaan <span class="text-red-400">*</span>
-                            </label>
-                            <div class="relative">
-                                <select name="pekerjaan" required
-                                    class="w-full text-[13px] border @error('pekerjaan') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-xl px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all appearance-none cursor-pointer">
-                                    <option value="" disabled {{ old('pekerjaan') ? '' : 'selected' }}>Pilih pekerjaan
-                                        saat ini</option>
-                                    @foreach(['IRT' => 'Ibu Rumah Tangga (IRT)', 'PNS' => 'PNS / ASN', 'swasta' =>
-                                    'Karyawan Swasta', 'wiraswasta' => 'Wiraswasta / Wirausaha', 'nakes' => 'Tenaga
-                                    Kesehatan', 'guru' => 'Guru / Pendidik', 'mahasiswa' => 'Mahasiswa', 'lainnya' =>
-                                    'Lainnya'] as $val => $label)
-                                    <option value="{{ $val }}" {{ old('pekerjaan')==$val ? 'selected' : '' }}>{{ $label
-                                        }}</option>
-                                    @endforeach
-                                </select>
-                                <i
-                                    class="ti ti-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 text-[15px] pointer-events-none"></i>
-                            </div>
-                            @error('pekerjaan')
-                            <p class="text-[12px] text-red-500 mt-1">{{ $message }}</p>
-                            @enderror
                         </div>
 
                     </div>
@@ -430,7 +439,8 @@
 <script>
     function registerForm() {
         return {
-            sudahMelahirkan: null,
+            hpht: '',
+            status: ''
         }
     }
 </script>
