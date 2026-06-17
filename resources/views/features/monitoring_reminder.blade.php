@@ -31,7 +31,7 @@
                     Keterampilan Menyusui
                 </a>
 
-                <a href=""
+                <a href="{{ route('post_test') }}"
                     class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-[var(--color-primary-dk)] transition">
                     Post-Test
                     <i class="ti ti-arrow-right"></i>

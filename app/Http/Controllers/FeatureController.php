@@ -291,4 +291,375 @@ class FeatureController extends Controller
     {
         return view('features.monitoring_reminder');
     }
+
+    private function getQuestions()
+    {
+        return [
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'Apa yang dimaksud dengan ASI eksklusif?',
+            'options' => [
+            'ASI saja tanpa makanan atau minuman lain selama 6 bulan',
+            'ASI dan susu formula',
+            'ASI dan MPASI sejak lahir',
+            'ASI dengan air putih'
+            ],
+            'answer' => 0
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'Berapa lama rekomendasi pemberian ASI eksklusif?',
+            'options' => [
+            '3 bulan',
+            '4 bulan',
+            '6 bulan',
+            '12 bulan'
+            ],
+            'answer' => 2
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'Kolostrum adalah...',
+            'options' => [
+            'ASI pertama yang kaya antibodi',
+            'ASI basi',
+            'Susu formula',
+            'ASI setelah 1 tahun'
+            ],
+            'answer' => 0
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'Manfaat ASI bagi bayi adalah...',
+            'options' => [
+            'Meningkatkan daya tahan tubuh',
+            'Menyebabkan alergi',
+            'Menghambat pertumbuhan',
+            'Tidak memiliki manfaat'
+            ],
+            'answer' => 0
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'IMD dilakukan dalam waktu...',
+            'options' => [
+            '24 jam setelah lahir',
+            '1 minggu setelah lahir',
+            '1 jam pertama setelah lahir',
+            '3 hari setelah lahir'
+            ],
+            'answer' => 2
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'ASI mengandung...',
+            'options' => [
+            'Zat gizi lengkap',
+            'Tidak ada protein',
+            'Hanya lemak',
+            'Hanya vitamin'
+            ],
+            'answer' => 0
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'Pemberian air putih pada bayi usia 3 bulan...',
+            'options' => [
+            'Dianjurkan',
+            'Tidak dianjurkan',
+            'Wajib',
+            'Harus setiap hari'
+            ],
+            'answer' => 1
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'ASI dapat membantu melindungi bayi dari...',
+            'options' => [
+            'Infeksi',
+            'Pertumbuhan',
+            'Tidur',
+            'Berat badan'
+            ],
+            'answer' => 0
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'ASI sebaiknya diberikan...',
+            'options' => [
+            'Sesuai jadwal ketat',
+            'Saat bayi menginginkan',
+            '1 kali sehari',
+            '2 kali sehari'
+            ],
+            'answer' => 1
+            ],
+
+            [
+            'category' => 'Pengetahuan ASI Eksklusif',
+            'question' => 'ASI tetap dapat diberikan ketika ibu bekerja dengan cara...',
+            'options' => [
+            'Menghentikan menyusui',
+            'Memerah dan menyimpan ASI',
+            'Memberi air putih',
+            'Tidak memberikan ASI'
+            ],
+            'answer' => 1
+            ],
+
+            // Sikap
+
+            [
+            'category'=>'Sikap',
+            'question'=>'Saya percaya ASI eksklusif penting bagi bayi.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Sikap',
+            'question'=>'Menyusui merupakan tanggung jawab yang penting bagi ibu.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Sikap',
+            'question'=>'Saya merasa menyusui memberikan manfaat bagi bayi.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Sikap',
+            'question'=>'Saya merasa bangga dapat memberikan ASI.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Sikap',
+            'question'=>'Saya bersedia berusaha mempertahankan ASI eksklusif.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            // Motivasi
+
+            [
+            'category'=>'Motivasi',
+            'question'=>'Saya termotivasi memberikan ASI eksklusif selama 6 bulan.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Motivasi',
+            'question'=>'Saya ingin memberikan yang terbaik bagi bayi saya.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Motivasi',
+            'question'=>'Saya bersedia mencari informasi tentang menyusui.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Motivasi',
+            'question'=>'Saya ingin tetap menyusui meskipun menghadapi kesulitan.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Motivasi',
+            'question'=>'Saya merasa menyusui adalah prioritas bagi saya.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            // Self Efficacy
+
+            [
+            'category'=>'Self-Efficacy',
+            'question'=>'Saya yakin dapat menyusui bayi dengan benar.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Self-Efficacy',
+            'question'=>'Saya yakin dapat mengatasi masalah menyusui.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Self-Efficacy',
+            'question'=>'Saya yakin dapat mempertahankan ASI eksklusif.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Self-Efficacy',
+            'question'=>'Saya percaya diri menyusui di berbagai situasi.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            // Niat
+
+            [
+            'category'=>'Niat',
+            'question'=>'Saya berniat memberikan ASI eksklusif selama 6 bulan.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Niat',
+            'question'=>'Saya berencana menyusui segera setelah bayi lahir.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Niat',
+            'question'=>'Saya akan berusaha mempertahankan menyusui sampai usia 2 tahun.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            // Dukungan Sosial
+
+            [
+            'category'=>'Dukungan Sosial',
+            'question'=>'Keluarga saya mendukung pemberian ASI eksklusif.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Dukungan Sosial',
+            'question'=>'Pasangan saya mendukung proses menyusui.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ],
+
+            [
+            'category'=>'Dukungan Sosial',
+            'question'=>'Saya memiliki akses terhadap bantuan tenaga kesehatan.',
+            'options'=>['Sangat Tidak Setuju','Tidak Setuju','Ragu-ragu','Setuju','Sangat Setuju']
+            ]
+        ];
+    }
+
+    public function pre_test()
+    {
+        $questions = $this->getQuestions();
+
+        return view('features.pre_test', compact('questions'));
+    }
+
+    public function post_test()
+    {
+        $questions = $this->getQuestions();
+
+        return view('features.post_test', compact('questions'));
+    }
+
+    private function calculateScore($questions, $request)
+    {
+        $knowledgeCorrect = 0;
+
+        $scores = [
+            'Sikap' => [],
+            'Motivasi' => [],
+            'Self-Efficacy' => [],
+            'Niat' => [],
+            'Dukungan Sosial' => [],
+        ];
+
+        foreach ($questions as $index => $question) {
+
+            $answer = $request->input("question_$index");
+
+            if (
+                $question['category'] == 'Pengetahuan ASI Eksklusif'
+                && isset($question['answer'])
+            ) {
+
+                if ($answer == $question['answer']) {
+                    $knowledgeCorrect++;
+                }
+
+            } else {
+
+                $scores[$question['category']][] =
+                    ((int)$answer) + 1;
+            }
+        }
+
+        $knowledgeScore =
+            ($knowledgeCorrect / 10) * 100;
+
+        $knowledgeLabel =
+            $knowledgeScore >= 80 ? 'Baik'
+            : ($knowledgeScore >= 60 ? 'Cukup'
+            : 'Perlu Pendampingan');
+
+        $results = [];
+
+        foreach ($scores as $category => $values) {
+
+            $total = array_sum($values);
+            $max = count($values) * 5;
+
+            $percentage = ($total / $max) * 100;
+
+            $results[$category] = [
+                'score' => round($percentage, 2),
+                'label' => $percentage >= 80
+                    ? 'Baik'
+                    : ($percentage >= 60
+                        ? 'Cukup'
+                        : 'Perlu Pendampingan')
+            ];
+        }
+
+        return [
+            'knowledgeScore' => $knowledgeScore,
+            'knowledgeLabel' => $knowledgeLabel,
+            'results' => $results
+        ];
+    }
+
+    public function submit_pretest(Request $request)
+    {
+        $questions = $this->getQuestions();
+
+        $result = $this->calculateScore(
+            $questions,
+            $request
+        );
+
+        return view('features.pre_test', [
+            'questions' => $questions,
+            'showResult' => true,
+            'knowledgeScore' => $result['knowledgeScore'],
+            'knowledgeLabel' => $result['knowledgeLabel'],
+            'results' => $result['results']
+        ]);
+    }
+
+    public function submit_posttest(Request $request)
+    {
+        $questions = $this->getQuestions();
+
+        $result = $this->calculateScore(
+            $questions,
+            $request
+        );
+
+        return view('features.post_test', [
+            'questions' => $questions,
+            'showResult' => true,
+            'knowledgeScore' => $result['knowledgeScore'],
+            'knowledgeLabel' => $result['knowledgeLabel'],
+            'results' => $result['results']
+        ]);
+    }
 }
