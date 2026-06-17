@@ -36,11 +36,11 @@
 
             <div class="flex items-center gap-2">
                 {{-- nanti ini kalau udah login gantinya jadi logout --}}
-                <a href=""
+                <a href="{{ route('user.login') }}"
                     class="border border-slate-200 text-slate-700 text-[13px] font-medium px-4 py-1.5 rounded-lg hover:bg-slate-50 transition-colors">
                     Masuk
                 </a>
-                <a href=""
+                <a href="{{ route('user.register') }}"
                     class="bg-[var(--color-primary)] text-white text-[13px] font-semibold px-4 py-1.5 rounded-lg hover:bg-[--color-primary-dk] transition-colors">
                     Daftar Sekarang
                 </a>

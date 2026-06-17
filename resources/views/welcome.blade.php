@@ -25,6 +25,8 @@
         </p>
 
         <div class="flex flex-wrap justify-center gap-3">
+            {{-- add conditional function, if have login cache then bring to beranda, if not bring to login page first
+            --}}
             <a href="{{ route('beranda') }}"
                 class="inline-flex items-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dk)] text-white font-semibold px-7 py-3 rounded-xl transition">
                 <i class="ti ti-rocket"></i>

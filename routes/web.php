@@ -7,7 +7,7 @@ use App\Http\Controllers\FeatureController;
 
 // Authentication
 Route::get('/login', [AuthController::class, 'showLogin'])->name('user.login');
-Route::get('/auth/register', [AuthController::class, 'register']);
+Route::get('/auth/register', [AuthController::class, 'register'])->name('user.register');
 Route::post('/register', [AuthController::class, 'store'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/auth/logout', [AuthController::class, 'logout'])->name('user.logout');
