@@ -296,6 +296,11 @@ class FeatureController extends Controller
         return view('features.monitoring_reminder');
     }
 
+    public function outcome_asi_eksklusif()
+    {
+        return view("features.outcome_asi_eksklusif");
+    }
+
     public function dukungan_sosial()
     {
         return view("features.dukungan_sosial");
