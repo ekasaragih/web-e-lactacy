@@ -22,7 +22,9 @@ class FeatureController extends Controller
     public function beranda()
     {
         $user = Auth::user();
-        return view('features.beranda', compact('user'));
+        $hasPretest = $user->preTestScore !== null;
+
+        return view('features.beranda', compact('user', 'hasPretest'));
     }
 
     public function edukasi_laktasi()

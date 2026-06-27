@@ -6,12 +6,9 @@
 |--------------------------------------------------------------------------
 | DATA SEMENTARA (HARDCODE)
 |--------------------------------------------------------------------------
-| Semua variabel di bawah ini masih hardcode untuk keperluan tampilan.
-| Nanti tinggal ganti dengan query asli dari controller / database.
+| semua variabel di bawah ini masih hardcode untuk keperluan tampilan.
+| nnti tinggal ganti dengan query asli dari controller / database.
 */
-
-// TODO: ganti dengan, misalnya: $hasPretest = $user->preTest()->exists();
-$hasPretest = false;
 
 // TODO: hitung dari tanggal mulai program si Ibu
 $programDay = 14;
@@ -457,7 +454,7 @@ $reminders = $hasPretest ? [
         </div>
 
         {{-- quick access - idk if necessary --}}
-        <div class="elc-animate bg-white border rounded-3xl p-8">
+        {{-- <div class="elc-animate bg-white border rounded-3xl p-8">
             <h3 class="font-semibold text-lg mb-6">Akses Cepat</h3>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 @php
@@ -480,7 +477,7 @@ $reminders = $hasPretest ? [
                 </a>
                 @endforeach
             </div>
-        </div>
+        </div> --}}
 
         {{-- pages/program utama --}}
         <div class="elc-animate bg-white border rounded-3xl p-8">
