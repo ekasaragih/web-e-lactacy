@@ -80,7 +80,6 @@
                 </p>
             </div>
 
-            {{-- Session Error --}}
             @if(session('error'))
             <div class="flex items-center gap-3 bg-red-50 border border-red-200 rounded-xl p-4 mb-5">
                 <i class="ti ti-alert-circle text-red-500 text-[18px] shrink-0"></i>
@@ -88,7 +87,6 @@
             </div>
             @endif
 
-            {{-- Validation Errors --}}
             @if($errors->any())
             <div class="flex items-start gap-3 bg-red-50 border border-red-200 rounded-xl p-4 mb-5">
                 <i class="ti ti-alert-circle text-red-500 text-[18px] shrink-0 mt-0.5"></i>
@@ -100,7 +98,6 @@
             </div>
             @endif
 
-            {{-- Success after register --}}
             @if(session('success'))
             <div class="flex items-center gap-3 bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-5">
                 <i class="ti ti-circle-check text-emerald-500 text-[18px] shrink-0"></i>
@@ -125,25 +122,36 @@
 
                 <div>
                     <div class="flex items-center justify-between mb-1.5">
-                        <label class="text-[12px] font-semibold text-slate-600">Kata Sandi</label>
+                        <label class="text-[12px] font-semibold text-slate-600">
+                            Kata Sandi
+                        </label>
+
                         @if(Route::has('password.request'))
                         <a href="{{ route('password.request') }}"
-                            class="text-[12px] text-[var(--color-primary)] hover:underline font-medium">
+                            class="text-[12px] font-medium text-[var(--color-primary)] hover:underline">
                             Lupa kata sandi?
                         </a>
                         @endif
                     </div>
-                    <div class="relative" x-data="{ show: false }">
-                        <input :type="show ? 'text' : 'password'" name="password" required
+
+                    <div
+                        class="flex items-center border @error('password') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-xl focus-within:ring-2 focus-within:ring-[var(--color-primary)] focus-within:border-[var(--color-primary)] transition-all">
+
+                        <input type="password" id="password" name="password" required
                             placeholder="Masukkan kata sandi Anda"
-                            class="w-full text-[13px] border @error('password') border-red-300 bg-red-50 @else border-slate-200 bg-white @enderror rounded-xl px-4 py-3 pr-11 text-slate-800 placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all">
-                        <button type="button" @click="show = !show"
-                            class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors">
-                            <i class="ti text-[17px]" :class="show ? 'ti-eye-off' : 'ti-eye'"></i>
+                            class="flex-1 bg-transparent px-4 py-3 text-[13px] text-slate-800 placeholder:text-slate-300 outline-none rounded-l-xl">
+
+                        <button type="button" id="togglePassword"
+                            class="px-4 text-slate-400 hover:text-slate-600 transition-colors">
+                            <i class="ti ti-eye text-[17px]"></i>
                         </button>
+
                     </div>
+
                     @error('password')
-                    <p class="text-[12px] text-red-500 mt-1">{{ $message }}</p>
+                    <p class="text-[12px] text-red-500 mt-1">
+                        {{ $message }}
+                    </p>
                     @enderror
                 </div>
 
@@ -188,3 +196,30 @@
     </div>
 
 </div>
+
+<script>
+    function togglePassword(inputId, toggleId) {
+        const input = document.getElementById(inputId);
+        const toggle = document.getElementById(toggleId);
+
+        toggle.addEventListener("click", function () {
+            const icon = toggle.querySelector("i");
+
+            if (input.type === "password") {
+
+                input.type = "text";
+
+                icon.classList.remove("ti-eye");
+                icon.classList.add("ti-eye-off");
+
+            } else {
+                input.type = "password";
+
+                icon.classList.remove("ti-eye-off");
+                icon.classList.add("ti-eye");
+            }
+        });
+    }
+
+    togglePassword("password", "togglePassword");
+</script>

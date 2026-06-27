@@ -357,8 +357,7 @@
                     </div>
 
                     <div class="flex flex-col items-end">
-                        <div
-                            class="bg-[var(--color-primary)] text-white rounded-xl rounded-tr-none p-3 max-w-xs text-right">
+                        <div class="bg-[var(--color-primary)] text-white rounded-xl rounded-tr-none p-3 max-w-xs">
                             Dok, bayi saya 2 minggu. ASI saya terasa sedikit, apakah normal?
                         </div>
                         <p class="text-xs text-slate-400 mt-1 mr-1">10:03</p>
