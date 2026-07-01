@@ -115,7 +115,7 @@ $reminders = $hasPretest ? [
 
     @include('layouts.sidebar')
 
-    <main class="flex-1 p-8 space-y-8">
+    <main class="flex-1 p-4 space-y-8">
 
         {{-- pre-test reminder if pre-test score is empty --}}
         @if(!$hasPretest)
@@ -348,18 +348,26 @@ $reminders = $hasPretest ? [
                 </div>
             </div>
 
-            <div
-                class="{{ $hasPretest ? '' : 'elc-locked' }} flex items-center justify-between mt-6 pt-6 border-t border-slate-100">
-                <div class="flex-1">
-                    <p class="text-xs text-slate-400 mb-2">Riwayat 7 hari terakhir (kali menyusui)</p>
-                    <div class="flex items-end gap-2 h-16" id="elc-weekly-chart">
+            <div class="{{ $hasPretest ? '' : 'elc-locked' }}
+                mt-6 pt-6 border-t border-slate-100
+                flex flex-col gap-5
+                lg:flex-row lg:items-center lg:justify-between">
+                <div class="flex-1 w-full">
+                    <p class="text-xs text-slate-400 mb-2">
+                        Riwayat 7 hari terakhir (kali menyusui)
+                    </p>
+
+                    <div class="flex items-end justify-between lg:justify-start gap-2 h-16" id="elc-weekly-chart">
                         @foreach($weeklyAsi as $i => $value)
                         <div class="flex flex-col items-center justify-end h-full gap-1">
-                            <div class="w-6 rounded-md {{ $i === count($weeklyAsi) - 1 ? 'bg-[var(--color-primary)]' : 'bg-slate-200' }}"
+                            <div class="w-6 rounded-md {{ $i === count($weeklyAsi)-1 ? 'bg-[var(--color-primary)]' : 'bg-slate-200' }}"
                                 style="height: {{ $value === 0 ? 4 : max(8, ($value / max($weeklyAsi)) * 56) }}px"
                                 data-bar="{{ $i }}">
                             </div>
-                            <span class="text-[10px] text-slate-400">{{ $weeklyLabel[$i] }}</span>
+
+                            <span class="text-[10px] text-slate-400">
+                                {{ $weeklyLabel[$i] }}
+                            </span>
                         </div>
                         @endforeach
                     </div>

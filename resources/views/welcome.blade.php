@@ -324,7 +324,7 @@
                     </div>
                 </div>
 
-                <a href="#"
+                <a href="{{ route('konseling_online') }}"
                     class="inline-flex items-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-dk)] text-white px-6 py-3 rounded-xl font-semibold transition">
                     <i class="ti ti-message-circle"></i>
                     Mulai Konseling
@@ -426,7 +426,7 @@
                 Bersama, kita wujudkan ASI eksklusif untuk buah hati Anda.
             </p>
 
-            <a href="#"
+            <a href="{{ route('user.register') }}"
                 class="inline-flex items-center gap-2 bg-white text-[var(--color-primary)] font-semibold px-7 py-3 rounded-xl">
                 Daftar Sekarang
                 <i class="ti ti-arrow-right"></i>
